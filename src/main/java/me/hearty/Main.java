@@ -19,32 +19,24 @@ public class Main {
         int num = input.nextInt();
         if (choice == 1) {
             System.out.println("Il numero in binario è: " + decToBin(num));
-        } else if (choice == 2) {
-            System.out.println("Il numero in decimale è: " + binToDec(num + ""));
         } else {
-            System.out.println("Scelta non valida");
+            System.out.println("Il numero in decimale è: " + binToDec(num + ""));
         }
 
     }
 
     public static String decToBin(int num) {
         String bin;
-        for(bin = ""; num > 0; num /= 2) {
+        for(bin = ""; num > 0; num /= 2)
             bin = num % 2 + bin;
-        }
-
         return bin;
     }
 
     public static int binToDec(String bin) {
         int dec = 0;
-
-        for(int i = 0; i < bin.length(); ++i) {
-            if (bin.charAt(i) == '1') {
-                dec = (int)((double)dec + Math.pow(2.0, (double)(bin.length() - i - 1)));
-            }
-        }
-
+        for(int i = 0; i < bin.length(); ++i)
+            if (bin.charAt(i) == '1')
+                dec = (int)((double)dec + Math.pow(2.0, bin.length() - i - 1));
         return dec;
     }
 }
